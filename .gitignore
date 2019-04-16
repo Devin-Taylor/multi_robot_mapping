@@ -1,0 +1,12 @@
+scripts/__pycache__/*
+
+*.xml
+*.txt
+*.pdf
+*.bag
+*.webm
+*.aux
+*.log
+*.gz
+*.blg
+*.bbl

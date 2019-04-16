@@ -1,0 +1,43 @@
+<launch>
+  <!-- No namespace here as we will share this description.
+       Access with slash at the beginning -->
+  <arg name="model" default="burger" doc="model type [burger, waffle, waffle_pi]"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <!-- BEGIN ROBOT 1 - top right -->
+  <group ns="robot1">
+    <include file="$(find multi_robot)/launch/one_robot.launch" >
+      <arg name="x_pos" default="2.25"/>
+      <arg name="y_pos" default="-2.25"/>
+      <arg name="z_pos" default="0.0"/>
+      <arg name="yaw" default="3.141592653589793"/>
+      <arg name="robot_name"  value="robot1" />
+    </include>
+  </group>
+
+<!-- 3.141592653589793 -->
+
+  <!-- BEGIN ROBOT 2 - bottom left -->
+  <group ns="robot2">
+    <include file="$(find multi_robot)/launch/one_robot.launch" >
+      <arg name="x_pos" default="-2.0"/>
+      <arg name="y_pos" default="2.25"/>
+      <arg name="z_pos" default="0.0"/>
+      <arg name="yaw" default="0.0"/>
+      <arg name="robot_name"  value="robot2" />
+    </include>
+  </group>
+
+  <!-- BEGIN ROBOT 3 - bottom right -->
+  <group ns="robot3">
+    <include file="$(find multi_robot)/launch/one_robot.launch" >
+      <arg name="x_pos" default="-2.25"/>
+      <arg name="y_pos" default="-2.0"/>
+      <arg name="z_pos" default="0.0"/>
+      <arg name="yaw" default="1.5708"/>
+      <arg name="robot_name"  value="robot3" />
+    </include>
+  </group>
+
+
+</launch>
